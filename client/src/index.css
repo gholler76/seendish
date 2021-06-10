@@ -1,9 +1,12 @@
-
-body {
-  background-color:rgb(204, 204, 204);
+* {
+  font-family: 'Roboto', sans-serif !important;
 }
 
-* {
-  /* font-family: 'Noto Sans JP' !important; */
-  font-family: 'Roboto', sans-serif !important;
+body {
+  background-color:#cccccc;
+}
+
+main {
+  background-color:#ff3333;
+  box-shadow: 2px 4px 8px #222222;
 }

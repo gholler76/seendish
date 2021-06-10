@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   [theme.breakpoints.down('sm')]: {
     mainContainer: {
       flexDirection: 'column-reverse',
-      backgroundColor: 'rgba(255,51,51)'
+      backgroundColor: 'palette.primary.main'
     },
   },
   appBar: {
