@@ -3,7 +3,8 @@ import useStyles from './styles';
 import {Grid, Container, Typography, Button} from '@material-ui/core';
 import lw300 from '../../images/lw300.png';
 import {useDispatch} from 'react-redux';
-import {login, register} from '../../';
+import {login, register} from '../../actions/auth';
+import {useHistory} from 'react-router-dom';
 
 import Input from './Input';
 
@@ -14,23 +15,24 @@ const Register = () => {
   const [isRegister, setIsRegister] = useState(false);
   const [form, setForm] = useState(initialState);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isRegister) {
-      dispatch(register(form));
+      dispatch(register(form, history));
     } else {
-      dispatch(login(form));
+      dispatch(login(form, history));
     }
   };
 
-  const handleChange = () => {
-
+  const handleChange = (e) => {
+    setForm({...form, [e.target.name]: e.target.value});
   };
 
   const switchMode = () => {
     setForm(initialState);
-    setIsRegister(!isRegister);
+    setIsRegister((prevIsRegister) => !prevIsRegister);
   };
 
   return (
@@ -43,11 +45,10 @@ const Register = () => {
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={1}>
             {isRegister && (
-              <div>
+              <React.Fragment>
                 <Input name="username" label="Username" handleChange={handleChange} autoFocus />
                 <Input name="firstName" label="First Name" handleChange={handleChange} />
-                <Input name="lastName" label="Last Name" handleChange={handleChange} />
-              </div>
+              </React.Fragment>
             )}
             <Input name="email" label="Email" handleChange={handleChange} type="email" />
             <Input name="password" label="Password" handleChange={handleChange} type="password" />

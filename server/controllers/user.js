@@ -5,17 +5,17 @@ import UserModal from "../models/user.js";
 
 const secret = 'test';
 
-export const signin = async (req, res) => {
+export const login = async (req, res) => {
   const {email, password} = req.body;
 
   try {
     const oldUser = await UserModal.findOne({email});
 
-    if (!oldUser) return res.status(404).json({message: "User doesn't exist"});
+    if (!oldUser) return res.status(404).json({message: "User not found"});
 
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 
-    if (!isPasswordCorrect) return res.status(400).json({message: "Invalid credentials"});
+    if (!isPasswordCorrect) return res.status(400).json({message: "Password is incorrect"});
 
     const token = jwt.sign({email: oldUser.email, id: oldUser._id}, secret, {expiresIn: "1h"});
 
@@ -25,7 +25,7 @@ export const signin = async (req, res) => {
   }
 };
 
-export const signup = async (req, res) => {
+export const register = async (req, res) => {
   const {email, password, firstName, lastName, username} = req.body;
 
   try {

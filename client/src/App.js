@@ -5,6 +5,7 @@ import useStyles from './styles';
 
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
+import TopNav from './components/Navbar/TopNav';
 
 const theme = createMuiTheme({
 	palette: {
@@ -24,7 +25,8 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<BrowserRouter>
-				<Container className={classes.mainContainer} component="main" maxWidth="md" elevation={4}>
+				<Container className={classes.mainContainer} component="main" maxWidth="md">
+					{user ? <TopNav /> : null}
 					<Switch>
 						<Route path="/" exact component={() => <Redirect to="/home" />} />
 						<Route path="/home" exact component={Home} />
