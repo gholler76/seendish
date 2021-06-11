@@ -6,7 +6,10 @@ export default makeStyles((theme) => ({
       flexDirection: 'column-reverse',
       backgroundColor: 'palette.primary.main',
       padding: 0
+
     },
+
+
   },
 
 }));

@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: '.5rem',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     }
