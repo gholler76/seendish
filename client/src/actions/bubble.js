@@ -1,13 +1,12 @@
-import {AUTH} from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
-export const login = (formData, router) => async (dispatch) => {
+export const getBubbles = () => async (dispatch) => {
   try {
-    const {data} = await api.login(formData);
+    dispatch({type: START_LOADING});
+    const data = await api.fetchBubbles();
+    dispatch({type: FETCH_ALL, payload: {data}});
 
-    dispatch({type: AUTH, data});
-
-    router.push('/');
+    dispatch({type: END_LOADING});
   } catch (error) {
     console.log(error);
   }
