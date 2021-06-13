@@ -12,8 +12,9 @@ app.use(express.json({limit: "5mb", extended: true}));
 app.use(express.urlencoded({limit: "5mb", extended: true}));
 app.use(cors());
 
-app.use('/dishes', dishRoutes);
 app.use('/user', userRoutes);
+app.use('/dishes', dishRoutes);
+app.use('/bubbles', bubbleRoutes);
 const PORT = process.env.PORT;
 
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})

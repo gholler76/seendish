@@ -33,12 +33,12 @@ const TopNav = () => {
 
   return (
     <AppBar className={classes.topBar} position="static">
-      <IconButton edge="start" color="secondary">
+      <IconButton edge="start" className={classes.menuIcon}>
         <MenuIcon />
       </IconButton>
       <img src={logoNav} />
-      <Typography className={classes.userName}>Username</Typography>
-      <Button size="small" color="secondary" onClick={logout} variant="contained">Logout</Button>
+      <Typography className={classes.userName} >Username</Typography>
+      <Button size="small" className={classes.logout} onClick={logout} variant="contained">Logout</Button>
     </AppBar>
 
   );

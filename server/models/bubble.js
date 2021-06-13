@@ -2,14 +2,14 @@ import mongoose from 'mongoose';
 
 const bubbleSchema = mongoose.Schema({
   title: String,
-  pic: String,
+  popdate: Date,
+  type: String,
+  picUrl: String,
   createdAt: {
     type: Date,
     default: new Date(),
   },
-  popdate: Date,
   dishes: {type: [String], default: []},
-  type: String,
 },
 );
 

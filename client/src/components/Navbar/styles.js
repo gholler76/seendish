@@ -2,7 +2,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   topBar: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.seenRed.light,
     padding: '.5rem 1rem',
     display: 'flex',
     flexDirection: 'row',
@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
     marginBottom: '.5rem',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-    }
+    },
   },
   toolbar: {
     display: 'flex',
@@ -22,9 +22,13 @@ export default makeStyles((theme) => ({
     },
   },
   userName: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.seenWhite.main,
     fontWeight: 'bold'
-  }
-
-
+  },
+  logout: {
+    backgroundColor: theme.palette.seenGold.main,
+  },
+  menuIcon: {
+    color: theme.palette.seenGold.main,
+  },
 }));
