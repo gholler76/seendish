@@ -1,36 +1,21 @@
 import React from 'react';
-import clsx from 'clsx';
-import {Card, CardHeader, CardMedia, CardContent, CardActions} from '@material-ui/core/';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import {IconButton, Typography, Grid} from '@material-ui/core/';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {Card, CardContent, CardMedia} from '@material-ui/core/';
+import {Grid, Typography} from '@material-ui/core/';
 import useStyles from './styles';
 
-
-import wv from '../../../images/WV.png';
-
-
-const Bubble = () => {
+const Bubble = (bubble) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
 
   return (
     <Grid container spacing={1}>
       <Grid item xs={4}>
-        <Card className={classes.root} className={classes.bubbleBox} >
+        <Card className={classes.bubbleBox} >
           <CardMedia
             className={classes.media}
-            image={wv}
+            image={bubble.picUrl}
+            title={bubble.title}
           />
+          <Typography variant="subtitle2">{bubble.popdate}</Typography>
         </Card>
       </Grid>
     </Grid>

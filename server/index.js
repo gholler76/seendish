@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.js';
 import dishRoutes from './routes/dishes.js';
+import bubbleRoutes from './routes/bubbles.js';
 
 const app = express();
 dotenv.config();

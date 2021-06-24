@@ -13,5 +13,5 @@ API.interceptors.request.use((req) => {
 export const login = (formData) => API.post('/user/login', formData);
 export const register = (formData) => API.post('/user/register', formData);
 
-export const fetchBubbles = () => API.get('/getBubbles');
-export const createBubble = (newBubble) => API.post('/create', newBubble);
+export const fetchBubbles = () => API.get('/bubbles');
+export const createBubble = (newBubble) => API.post('/bubbles', newBubble);

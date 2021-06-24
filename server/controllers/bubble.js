@@ -1,19 +1,23 @@
-import BubbleModal from "../models/user.js";
+import express from 'express';
+import mongoose from 'mongoose';
+import Bubble from "../models/bubble.js";
 
-export const getBubbles = async (req, res) => {
+const router = express.Router();
+
+export const getAllBubbles = async (req, res) => {
   try {
     const bubbles = await Bubble.find();
 
-    res.json(bubbles);
+    res.json({data: bubbles});
   } catch (error) {
     res.status(404).json({message: error.message});
   }
 };
 
-export const create = async (req, res) => {
-  const thisBubble = req.body;
+export const createBubble = async (req, res) => {
+  const bubble = req.body;
 
-  const newBubble = new Bubble({...thisBubble, createdAt: new Date().toISOString()});
+  const newBubble = new Bubble({...bubble, createdAt: new Date().toISOString()});
 
   try {
     await newBubble.save();
@@ -23,3 +27,6 @@ export const create = async (req, res) => {
     res.status(409).json({message: error.message});
   }
 };
+
+
+export default router;

@@ -1,5 +1,4 @@
 import {makeStyles} from '@material-ui/core/styles';
-import {red} from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
   media: {
@@ -10,7 +9,7 @@ export default makeStyles((theme) => ({
     width: 'auto'
   },
   bubbleBox: {
-    backgroundColor: theme.palette.seenWhite.main,
+    backgroundColor: theme.palette.seenRed.main,
   }
 
 }));
